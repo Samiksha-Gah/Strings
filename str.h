@@ -1,88 +1,29 @@
+#ifndef STR_H
+#define STR_H
 #include <stddef.h>
-#include <assert.h>
 
-size_t Str_getLength(const char pcSrc[])
-{
-   size_t uLength = 0;
-   assert(pcSrc != NULL);
-   while (pcSrc[uLength] != '\0')
-      uLength++;
-   return uLength;
-}
+/* Returns length of String pcSrc */ 
+size_t Str_getLength(const char* pcSrc);
 
-char* Str_copy(char pcDest[], const char pcSrc[]) {
-    size_t character;
-    assert(pcDest != NULL);
-    assert(pcSrc != NULL);
-   for (character = 0; pcDest[character] != '\0'; ++character) {
-      pcDest[character] = pcSrc[character];
-   }
-   pcDest[character] = '\0';
-   return pcDest;
-}
-/*my own */
-char* Str_concat(char pcDest[], const char pcSrc[]) {
-    size_t lengthDest;
-    size_t x;
-    assert(pcDest != NULL);
-    assert(pcSrc != NULL);
-    lengthDest = 0; 
+/* Copies pcSrc into pcDest, returning a pointer 
+to the new string */
 
-   while (pcDest[lengthDest] != '\0') {
-      lengthDest++;
-   }
+char *Str_copy(char* pcDest, const char* pcSrc);
 
-   x = 0;
-   while (pcSrc[x] != '\0') {
-      pcDest[lengthDest + x] = pcSrc[x];
-      x++;
-   }
+/* Adds pcSrc to the end of pcDest, 
+returning a pointer to the start of pcDest */
 
-   pcDest[lengthDest + x] = '\0';
-   return pcDest;
-} 
+char *Str_concat(char* pcDest, const char* pcSrc);
 
-int Str_compare(const char pcStr1[], const char pcStr2[]) {
-    size_t i = 0;
-    assert(pcStr1 != NULL);
-    assert(pcStr2 != NULL);
-    while (pcStr1[i] == pcStr2[i]) {
-        if (pcStr1[i] == '\0') {
-            return 0;
-        }
-        i++; 
-    }
+/* Comparing pcStr1 and pcStr2, returning a int less 
+than 0 if pcStr1 is less than pcStr2, returning a int more 
+than 0 if pcStr1 is greater than pcStr2, and returning 
+0 if pcStr1 is equal to pcStr2 */
 
-    int strSpot1 = (int)pcStr1[i];
-    int strSpot2 = (int)pcStr2[i];
+int Str_compare(const char* pcStr1, const char* pcStr2);
 
-    return strSpot1 - strSpot2; 
+/* Returns a pointer to the first occurrence 
+of the needle in the haystack stack */
+char *Str_search(const char* pcHaystack, const char* pcNeedle);
 
-    }
-
-/// @brief 
-/// @param pcHaystack 
-/// @param pcNeedle 
-/// @return 
-char* Str_search(char pcHaystack[], char pcNeedle[]) {
-    size_t i, j; 
-    assert(pcHaystack != NULL);
-    assert(pcNeedle != NULL);
-    if (pcNeedle[0] == '\0')
-        return pcHaystack;
-    for (i = 0; pcHaystack[i] != '\0'; i++) {
-        if (pcHaystack[i] == pcNeedle[0]) {
-            for (j = 0; pcNeedle[j] != '\0'; j++) {
-                if (pcHaystack[i + j] != pcNeedle[j]) {
-                    break;
-                }
-            }
-            if (pcNeedle[j] == '\0') { 
-                return &pcHaystack[i];
-            }
-        }
-    }
-    return NULL;
-
-}
-
+#endif
