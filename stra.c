@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "str.h"
+#include "str.h" 
 
 size_t Str_getLength(const char pcSrc[])
 {
@@ -63,7 +63,7 @@ int Str_compare(const char pcStr1[], const char pcStr2[]) {
 
     }
 
-char *Str_search(char *pcHaystack, char *pcNeedle) {
+char *Str_search(char *pcHaystack[], char *pcNeedle[]) {
     size_t i, j; 
     assert(pcHaystack != NULL);
     assert(pcNeedle != NULL);
