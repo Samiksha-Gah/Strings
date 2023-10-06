@@ -14,8 +14,9 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     size_t character;
     assert(pcDest != NULL);
     assert(pcSrc != NULL);
-   for (character = 0; pcDest[character] != '\0'; ++character) {
-      pcDest[character] = pcSrc[character];
+   while (pcSrc[character] != '\0') {
+    pcDest[character] = pcSrc[character];
+    character++;
    }
    pcDest[character] = '\0';
    return pcDest;
@@ -68,7 +69,7 @@ char* Str_search(char pcHaystack[], char pcNeedle[]) {
     size_t i, j; 
     assert(pcHaystack != NULL);
     assert(pcNeedle != NULL);
-    if (pcNeedle[0] == '/0')
+    if (pcNeedle[0] == '\0')
         return pcHaystack;
     for (i = 0; pcHaystack[i] != '\0'; i++) {
         if (pcHaystack[i] == pcNeedle[0]) {
