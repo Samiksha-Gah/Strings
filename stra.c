@@ -45,7 +45,7 @@ char *Str_concat(char pcDest[], const char pcSrc[]) {
    return pcDest;
 } 
 
-int Str_compare(const char pcStr1[], const char pcStr2[]) {
+int Str_compare(const pcStr1[], const pcStr2[]) {
     size_t i = 0;
     assert(pcStr1 != NULL);
     assert(pcStr2 != NULL);
