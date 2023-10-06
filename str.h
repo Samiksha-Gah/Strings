@@ -22,9 +22,7 @@ if pc1 = pc2.  */
 int Str_compare(const char pcStr1[], const char pcStr2[]);
 
 /* Returns a pointer to the first occurrence 
-of the substring needle in 
-haystack.  */
-
-char *Str_search(char pcHaystack[], char pcNeedle[]);
+of the needle in the haystack stack */
+char *Str_search(const char pcHaystack[], const char pcNeedle[]);
 
 #endif
