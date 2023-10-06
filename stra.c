@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <assert.h>
-/* #include "str.h" */
+#include "str.h"
 
 size_t Str_getLength(const char pcSrc[])
 {
