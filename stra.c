@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
+#include <stddef.h>
 #include <assert.h>
-#include "str.h" 
 
 size_t Str_getLength(const char pcSrc[])
 {
@@ -13,7 +10,7 @@ size_t Str_getLength(const char pcSrc[])
    return uLength;
 }
 
-char *Str_copy(char pcDest[], const char pcSrc[]) {
+char* Str_copy(char pcDest[], const char pcSrc[]) {
     size_t character;
     assert(pcDest != NULL);
     assert(pcSrc != NULL);
@@ -24,7 +21,7 @@ char *Str_copy(char pcDest[], const char pcSrc[]) {
    return pcDest;
 }
 /*my own */
-char *Str_concat(char pcDest[], const char pcSrc[]) {
+char* Str_concat(char pcDest[], const char pcSrc[]) {
     size_t lengthDest;
     size_t x;
     assert(pcDest != NULL);
@@ -63,7 +60,11 @@ int Str_compare(const char pcStr1[], const char pcStr2[]) {
 
     }
 
-char *Str_search(char pcHaystack[], char pcNeedle[]) {
+/// @brief 
+/// @param pcHaystack 
+/// @param pcNeedle 
+/// @return 
+char* Str_search(char pcHaystack[], char pcNeedle[]) {
     size_t i, j; 
     assert(pcHaystack != NULL);
     assert(pcNeedle != NULL);
