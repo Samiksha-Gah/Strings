@@ -67,6 +67,8 @@ char *Str_search(char pcHaystack[], char pcNeedle[]) {
     size_t i, j; 
     assert(pcHaystack != NULL);
     assert(pcNeedle != NULL);
+    if (pcNeedle[0] == '/0')
+        return pcHaystack;
     for (i = 0; pcHaystack[i] != '\0'; i++) {
         if (pcHaystack[i] == pcNeedle[0]) {
             for (j = 0; pcNeedle[j] != '\0'; j++) {
