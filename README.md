@@ -1,3 +1,3 @@
-# Assignment 2 - Strings
+# Strings
 
-This repository contains the provided files for Assignment 2.
+This task is to use C to compose a Str module that contains versions of the most commonly used standard string handling functions
